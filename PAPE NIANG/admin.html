@@ -17,3 +17,74 @@ function ajouterProduit(){
     alert("Produit ajouté !");
 }
 </script>
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Admin</title>
+
+<style>
+body {
+    font-family: Arial;
+    padding: 20px;
+    background: #f4f6f5;
+}
+
+h1 {
+    text-align: center;
+}
+
+.message {
+    background: white;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px;
+    background: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Messages reçus</h1>
+
+<div id="messages"></div>
+
+<button onclick="clearMessages()">Supprimer tout</button>
+
+<script>
+let messages = JSON.parse(localStorage.getItem("messages")) || [];
+
+let container = document.getElementById("messages");
+
+messages.forEach(msg => {
+    let div = document.createElement("div");
+    div.classList.add("message");
+    div.innerHTML = `
+        <strong>Nom:</strong> ${msg.name}<br>
+        <strong>Email:</strong> ${msg.email}<br>
+        <strong>Message:</strong> ${msg.message}
+    `;
+    container.appendChild(div);
+});
+
+function clearMessages() {
+    localStorage.removeItem("messages");
+    location.reload();
+}
+</script>
+
+</body>
+</html>
+
