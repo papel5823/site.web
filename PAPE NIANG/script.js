@@ -48,3 +48,92 @@ function commander() {
 }
 
 </script>
+
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
+
+    let messages = JSON.parse(localStorage.getItem("messages")) || [];
+
+    messages.push({name, email, message});
+
+    localStorage.setItem("messages", JSON.stringify(messages));
+
+    alert("Message envoyé !");
+    this.reset();
+});
+
+
+// FORMULAIRE
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
+
+    let messages = JSON.parse(localStorage.getItem("messages")) || [];
+
+    messages.push({name, email, message});
+
+    localStorage.setItem("messages", JSON.stringify(messages));
+
+    alert("Message envoyé !");
+    this.reset();
+});
+
+// ANIMATION SCROLL
+let elements = document.querySelectorAll(".fade-in");
+
+function showOnScroll() {
+    let triggerBottom = window.innerHeight * 0.85;
+
+    elements.forEach(el => {
+        let top = el.getBoundingClientRect().top;
+
+        if(top < triggerBottom) {
+            el.classList.add("visible");
+        }
+    });
+}
+
+window.addEventListener("scroll", showOnScroll);
+// FORMULAIRE
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
+
+    let messages = JSON.parse(localStorage.getItem("messages")) || [];
+
+    messages.push({name, email, message});
+
+    localStorage.setItem("messages", JSON.stringify(messages));
+
+    alert("Message envoyé !");
+    this.reset();
+});
+
+// ANIMATION SCROLL
+let elements = document.querySelectorAll(".fade-in");
+
+function showOnScroll() {
+    let triggerBottom = window.innerHeight * 0.85;
+
+    elements.forEach(el => {
+        let top = el.getBoundingClientRect().top;
+
+        if(top < triggerBottom) {
+            el.classList.add("visible");
+        }
+    });
+}
+
+window.addEventListener("scroll", showOnScroll);
+
+
