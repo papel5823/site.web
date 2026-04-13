@@ -1,0 +1,23 @@
+<style>
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 1s;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+
+<script>
+window.addEventListener("scroll", () => {
+    document.querySelectorAll(".fade-in").forEach(el => {
+        let top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 50) {
+            el.classList.add("visible");
+        }
+    });
+});
+</script>

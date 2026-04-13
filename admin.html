@@ -1,0 +1,19 @@
+<h2>Admin - Ajouter produit</h2>
+
+<input id="nom" placeholder="Nom produit">
+<input id="prix" placeholder="Prix">
+<button onclick="ajouterProduit()">Ajouter</button>
+
+<script>
+function ajouterProduit(){
+    let nom = document.getElementById("nom").value;
+    let prix = document.getElementById("prix").value;
+
+    let produits = JSON.parse(localStorage.getItem("produits")) || [];
+
+    produits.push({nom, prix});
+    localStorage.setItem("produits", JSON.stringify(produits));
+
+    alert("Produit ajouté !");
+}
+</script>
